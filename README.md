@@ -26,27 +26,19 @@ ADS111x analog to digital converter library for ESP-IDF. It uses ESP-IDF I2C ver
 21. esp_err_t ads111x_reset_threshold(ads111x_cfg_t* device_cfg)
 22. esp_err_t ads111x_alert_ready_pin(bool my_arg, ads111x_cfg_t* device_cfg)
 
-## Device configuration structure
-typedef struct {
-   /* ---- Managed by the library ---- */
-   uint8_t device_addr;    
-   uint8_t buffer[3];        // I2C communication buffer
-   float PGA_float;          // Gain amplifier value in float
-   uint8_t MSB_config_data; 
-   uint8_t LSB_config_data;
-   esp_err_t ADS111x_err;    // Error code
+## How to use
+## A. Simple ADC single-ended/differential mode
+1. Configure i2c_master_bus_config_t (ESP-IDF I2C)
+2. Define i2c_master_bus_handle_t (ESP-IDF I2C) variable
+3. Call function i2c_new_master_bus (ESP-IDF I2C) using proper arguments
+4. Define ads111x_cfg_t variable
+5. Call ads111x_reset_config_reg function to reset all ads111x_cfg_t member
+6. Call ads111x_configure_address function to configure ADS111x I2C device address
+7. Configure i2c_device_config_t (ESP-IDF I2C)
+8. Define i2c_master_dev_handle_t (ESP-IDF I2C) variable
+9. Call i2c_master_bus_add_device (ESP-IDF I2C) function
+10. Modify ads111x_cfg_t based on your need
+11. Call initialize_ads111x to flash the config register, low threshold (optional) and high threshold (optional) register
+12. ADC ready to use
 
-   /* ---- Managed by user ---- */
-   uint8_t mux_config;
-   uint8_t gain_amp;         // Gain amplifier register config
-   bool operating_mode;
-   uint8_t data_rate;
-   bool comp_mode;           // Comparator mode
-   bool comp_pol;            // Comparator polarity
-   bool comp_latch;          // Comparator latching
-   uint8_t comp_queue;       // Comparator queue
-   uint16_t low_threshold;   // Low threshold register 
-   uint16_t high_threshold;  // High threshold register
-   i2c_master_dev_handle_t ads111x_i2c_dev_handle; 
-} ads111x_cfg_t;
 
