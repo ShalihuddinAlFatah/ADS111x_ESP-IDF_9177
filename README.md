@@ -40,5 +40,12 @@ ADS111x analog to digital converter library for ESP-IDF. It uses ESP-IDF I2C ver
 10. Modify ads111x_cfg_t based on your need
 11. Call initialize_ads111x to flash the config register, low threshold (optional) and high threshold (optional) register
 12. ADC ready to use
-
+    
+### B. ADC with comparator alert
+1. The same step as A. above but dont forget to add your low threshold and high threshold value at step 10
+2. Alert/ready pin will give alert signal based on comparator setting
+   
+### C. ADC with conversion ready pin interrupt
+1. The same step as A.
+2. After step 11, call ads111x_alert_ready_pin to configure alert/ready pin to issue an interrupt when ADS111x done converting data
 
