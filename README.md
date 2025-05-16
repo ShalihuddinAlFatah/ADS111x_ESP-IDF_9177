@@ -1,6 +1,7 @@
 # ADS111x_ESP-IDF_9177
 
 ADS111x analog to digital converter library for ESP-IDF. It uses ESP-IDF I2C version 2 driver.
+The main.c file provide overview on how to use this library.
 
 ## List of accessible functions (see main/ADS111x.h for detailed information):
 1. void ads111x_reset_config_reg(ads111x_cfg_t* device_cfg)
