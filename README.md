@@ -27,7 +27,7 @@ ADS111x analog to digital converter library for ESP-IDF. It uses ESP-IDF I2C ver
 22. esp_err_t ads111x_alert_ready_pin(bool my_arg, ads111x_cfg_t* device_cfg)
 
 ## How to use
-## A. Simple ADC single-ended/differential mode
+### A. Simple ADC single-ended/differential mode
 1. Configure i2c_master_bus_config_t (ESP-IDF I2C)
 2. Define i2c_master_bus_handle_t (ESP-IDF I2C) variable
 3. Call function i2c_new_master_bus (ESP-IDF I2C) using proper arguments
